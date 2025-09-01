@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - HR Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f2fe;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #1e40af;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .form-container, .info-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 300px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #1e40af;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    .info-container p {
+      margin-bottom: 10px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: #cbd5e1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #334155;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .language-toggle {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+#toggleLanguageBtn {
+ position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 16px;
+      font-size: 1em;
+      background-color: white;
+      color: #1e69de;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+}
+
+#toggleLanguageBtn:hover {
+  background-color: #1e40af;
+  color: #ffffff;
+}
+
+    .language-toggle button {
+      background: none;
+      border: none;
+      font-weight: bold;
+      color: #1e40af;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-left: 10px;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <!-- Toggle Language Button -->
+    <div class="language-toggle">
+      <button id="toggleLanguageBtn" onclick="toggleLanguage()">मराठी</button>
+
+    </div>
+
+    <h1 id="contact-title">Contact Us</h1>
+
+    <div class="container">
+      <!-- Contact Form -->
+      <div class="form-container">
+        <form action="#" method="POST">
+          <label for="name" id="label-name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email" id="label-email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message" id="label-message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" id="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="info-container">
+        <h2 style="color:#1e40af;" id="get-in-touch-title">Get in Touch</h2>
+        <p id="intro-text">Looking to hire, partner, or ask a question? We’re here to help.</p>
+        <p><strong id="phone-label">Phone:</strong> <a href="tel:+919665944274">+91 9665944274</a></p>
+        <p><strong id="email-label">Email:</strong> <a href="mailto:helpyourself@gmail.com">helpyourself@gmail.com</a></p>
+        <p><strong id="address-label">Address:</strong><br/>Velapur, Maharashtra<br/>India</p>
+
+        <!-- Map or Offline Message -->
+        <div class="map-container" id="mapArea"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        contactTitle: "Contact Us",
+        labelName: "Full Name",
+        labelEmail: "Email",
+        labelMessage: "Message",
+        submitBtn: "Send Message",
+        getInTouchTitle: "Get in Touch",
+        introText: "Looking to hire, partner, or ask a question? We’re here to help.",
+        phoneLabel: "Phone:",
+        emailLabel: "Email:",
+        addressLabel: "Address:"
+      },
+      mr: {
+        contactTitle: "आमच्याशी संपर्क साधा",
+        labelName: "पूर्ण नाव",
+        labelEmail: "ईमेल",
+        labelMessage: "संदेश",
+        submitBtn: "संदेश पाठवा",
+        getInTouchTitle: "संपर्क करा",
+        introText: "नोकरीसाठी, भागीदारीसाठी किंवा प्रश्न विचारण्यासाठी संपर्क साधा.",
+        phoneLabel: "फोन:",
+        emailLabel: "ईमेल:",
+        addressLabel: "पत्ता:"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'mr' : 'en';
+      setLanguage(currentLang);
+      document.getElementById('toggleLanguageBtn').textContent = currentLang === 'en' ? 'मराठी' : 'English';
+    }
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('contact-title').textContent = t.contactTitle;
+      document.getElementById('label-name').textContent = t.labelName;
+      document.getElementById('label-email').textContent = t.labelEmail;
+      document.getElementById('label-message').textContent = t.labelMessage;
+      document.getElementById('submit-btn').textContent = t.submitBtn;
+      document.getElementById('get-in-touch-title').textContent = t.getInTouchTitle;
+      document.getElementById('intro-text').textContent = t.introText;
+      document.getElementById('phone-label').textContent = t.phoneLabel;
+      document.getElementById('email-label').textContent = t.emailLabel;
+      document.getElementById('address-label').textContent = t.addressLabel;
+    }
+
+    function loadMapOrMessage() {
+      const mapArea = document.getElementById('mapArea');
+      if (navigator.onLine) {
+        mapArea.innerHTML = `
+          <iframe 
+            src="https://www.google.com/maps?q=Velapur,+Maharashtra,+India&output=embed" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>`;
+      } else {
+        mapArea.innerHTML = `
+          <div class="map-placeholder">
+            Map not available. Please check your internet connection.
+          </div>`;
+      }
+    }
+
+    // Initial setup
+    loadMapOrMessage();
+    setLanguage(currentLang);
+
+    window.addEventListener('online', loadMapOrMessage);
+    window.addEventListener('offline', loadMapOrMessage);
+  </script>
+
+</body>
+</html>

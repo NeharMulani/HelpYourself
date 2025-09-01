@@ -1,0 +1,130 @@
+/* ========= GLOBAL STYLES ========= */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 60px;
+  background-color: #e0f7fa;
+}
+a {
+  text-decoration: none;
+  color: inherit; /* लिंकमुळे रंग न बदलण्यासाठी */
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: blue;
+  text-align: center;
+}
+
+/* ========= CONTAINERS ========= */
+.section {
+  background-color: white;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 30px;
+  max-width: 1200px;
+}
+
+/* ========= GRID LAYOUT FOR ICONS ========= */
+.item-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* ========= ICON-BASED ITEMS ========= */
+.item {
+  text-align: center;
+  max-width: 120px;
+}
+
+.item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ========= SHARED TEXT STYLES ========= */
+.item-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.item-subtitle {
+  font-size: 13px;
+  color: #388e3c;
+}
+
+/* ========= VERTICAL DETAIL BLOCKS ========= */
+.item-vertical {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item-vertical img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-vertical .item-title {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.item-vertical .item-subtitle {
+  font-size: 14px;
+  color: #388e3c;
+  margin-bottom: 8px;
+}
+
+.item-description {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* ========= RESPONSIVE FIXES ========= */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  .item-row {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .item-vertical {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .item-vertical img {
+    margin: 0 0 10px 0;
+  }
+
+  .item-details {
+    padding: 0;
+  }
+}

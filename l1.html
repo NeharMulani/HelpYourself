@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Language Toggle Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #d0eaff, #a8d8f0);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    form {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 600px;
+      height: auto;
+      position: relative;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      resize: vertical;
+    }
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #00334d;
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: none;
+    }
+    #success-message {
+      color: green;
+      font-size: 14px;
+      margin-bottom: 15px;
+      display: none;
+    }
+    button[type="submit"] {
+      color: white;
+      background-color: #0077b6;
+      border: none;
+      width: 100%;
+      height: 45px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #005f87;
+    }
+    #toggleLanguageBtn {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background: white;
+      color: #0077b6;
+      border: 2px solid  #0077b6;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #toggleLanguageBtn:hover {
+      background-color: #0077b6;
+      color: white;
+    }
+    @media screen and (max-width: 768px) {
+      form { width: 90%; padding: 20px; }
+      label { font-size: 14px; }
+      input, textarea { padding: 8px; font-size: 14px; }
+      button[type="submit"] { font-size: 16px; height: 40px; }
+      #toggleLanguageBtn { top: -40px; font-size: 14px; padding: 5px 10px; }
+      body { align-items: flex-start; padding-top: 10px; height: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <form id="myForm" action="demos/sliding images/home.html" novalidate>
+    <button id="toggleLanguageBtn" type="button" onclick="toggleLanguage()">मराठी</button>
+
+    <div id="success-message">Form submitted successfully! Redirecting...</div>
+
+    <label id="label-name">Full Name:</label>
+    <input type="text" id="fname" placeholder="Enter Name" />
+    <div class="error" id="fname-error">Full Name is required.</div>
+
+    <label id="label-email">Email:</label>
+    <input type="email" id="email" placeholder="Enter Email" />
+    <div class="error" id="email-error">Valid Email is required.</div>
+
+    <label id="label-contact">Contact Number:</label>
+    <input type="tel" id="contact" placeholder="e.g., 9876543210" />
+    <div class="error" id="contact-error">Contact number must contain only digits.</div>
+
+    <label id="label-address">Address:</label>
+    <textarea id="address" rows="4" placeholder="e.g., Velapur"></textarea>
+    <div class="error" id="address-error">Address is required.</div>
+
+    <button type="submit" id="submitBtn">Submit</button>
+  </form>
+
+  <script>
+    let isMarathi = false;
+
+    function toggleLanguage() {
+      isMarathi = !isMarathi;
+
+      document.getElementById("label-name").textContent = isMarathi ? "पूर्ण नाव:" : "Full Name:";
+      document.getElementById("label-email").textContent = isMarathi ? "ईमेल:" : "Email:";
+      document.getElementById("label-contact").textContent = isMarathi ? "संपर्क क्रमांक:" : "Contact Number:";
+      document.getElementById("label-address").textContent = isMarathi ? "पत्ता:" : "Address:";
+
+      document.getElementById("fname").placeholder = isMarathi ? "तुमचे नाव " : "Enter Name";
+      document.getElementById("email").placeholder = isMarathi ? "ईमेल " : "Enter Email";
+      document.getElementById("contact").placeholder = isMarathi ? "उदा., ९८७६५४३२१०" : "e.g., 9876543210";
+      document.getElementById("address").placeholder = isMarathi ? "उदा., वेळापूर" : "e.g., Velapur";
+
+      document.getElementById("fname-error").textContent = isMarathi ? "पूर्ण नाव आवश्यक आहे." : "Full Name is required.";
+      document.getElementById("email-error").textContent = isMarathi ? "वैध ईमेल आवश्यक आहे." : "Valid Email is required.";
+      document.getElementById("contact-error").textContent = isMarathi ? "संपर्क क्रमांक फक्त अंक असावा." : "Contact number must contain only digits.";
+      document.getElementById("address-error").textContent = isMarathi ? "पत्ता आवश्यक आहे." : "Address is required.";
+
+      document.getElementById("success-message").textContent = isMarathi ? "फॉर्म यशस्वीरित्या सबमिट झाला! पुनर्निर्देशित करत आहे..." : "Form submitted successfully! Redirecting...";
+
+      document.getElementById("submitBtn").textContent = isMarathi ? "सबमिट करा" : "Submit";
+      document.getElementById("toggleLanguageBtn").textContent = isMarathi ? "English" : "मराठी";
+    }
+
+    document.getElementById("myForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // Stop default so we can validate first
+
+      document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
+      document.getElementById("success-message").style.display = 'none';
+
+      let isValid = true;
+
+      const fname = document.getElementById("fname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      if (!fname) {
+        document.getElementById("fname-error").style.display = 'block';
+        isValid = false;
+      }
+      if (!email || !email.includes("@") || !email.includes(".")) {
+        document.getElementById("email-error").style.display = 'block';
+        isValid = false;
+      }
+      if (!/^\d+$/.test(contact)) {
+        document.getElementById("contact-error").style.display = 'block';
+        isValid = false;
+      }
+      if (!address) {
+        document.getElementById("address-error").style.display = 'block';
+        isValid = false;
+      }
+
+      if (isValid) {
+        document.getElementById("success-message").style.display = 'block';
+        setTimeout(() => {
+          window.location.href = document.getElementById("myForm").action;
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>
