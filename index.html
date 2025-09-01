@@ -4,7 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Services - Help Yourself</title>
-  <link rel="stylesheet" href="style2.css">
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; padding-bottom: 50px; color: #333; }
+
+    /* Header */
+    .main-header { text-align: center; background-color: #2874f0; color: white; padding: 40px 20px; }
+    .main-header h1 { font-size: 36px; margin-bottom: 10px; }
+    .main-header p { font-size: 18px; color: #e0e0e0; }
+
+    /* Services Section */
+    .services-section { margin: 40px auto; padding: 0 20px; max-width: 1200px; }
+    .services-section h2 { margin-bottom: 20px; font-size: 24px; color: #222; }
+
+    /* Grid */
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-items: center; }
+
+    /* Cards */
+    .service-card { width: 100%; max-width: 300px; background-color: white; border-radius: 12px; overflow: hidden; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .service-card img { width: 100%; height: 150px; object-fit: cover; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); }
+
+    /* Card Title */
+    .service-card-title { padding: 12px 10px 0; font-weight: bold; font-size: 16px; color: #222; }
+
+    /* Card Box */
+    .service-card-box { background-color: white; padding: 10px; font-weight: bold; border-top: 1px solid #ccc; font-size: 16px; transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; }
+    .service-card-box:hover { background-color: #66a6ff; color: white; cursor: pointer; box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); }
+
+    /* Focus Highlight */
+    h2:focus { outline: none; color: #2563eb; background-color: #ffe600; padding: 4px 8px; border-radius: 6px; transition: background-color 0.3s, color 0.3s; }
+    .service-card:focus { outline: 3px solid #22c55e; box-shadow: 0 0 12px #22c55e; }
+  </style>
 </head>
 <body>
 
@@ -16,130 +49,65 @@
   <section class="services-section">
     <h2 id="domestic-help" tabindex="-1">Domestic Help</h2>
     <div class="service-grid">
-      <div class="service-card-title"><img src="bhandi2.jpg" alt="House Cleaning" class="service-card img" style="width: 200px; height: auto;">
- <div class="service-card-box">House Cleaning   <br> <span style="color: green;">घराची स्वच्छता</span></div></div>
-      
-<div class="service-card-title"><img src="maid.jpg" alt="Maid Services" class="service-card img" style="width: 190px; height: auto;">
-<div class="service-card-box">Maid Services    <br> <span style="color: green;">घरकाम</span></div></div>
-      
-<div class="service-card-title"><img src="cook.jpg" alt="Maid Services" class="service-card img" style="width: 190px; height: auto;">
-<div class="service-card-box">Cook / Chef <br> <span style="color: green;">स्वयंपाकी</span></div></div>
-      
-
-     
-     
-<div class="service-card-title"><img src="driver.jpg"  class="service-card img" style="width: 190px; height: auto;">
- <div class="service-card-box">Driver on Demand     <br> <span style="color: green;">ड्रायव्हर</span></div>
+      <div class="service-card"><img src="image/bhandi2.jpg" alt="House Cleaning"><div class="service-card-box">House Cleaning <br><span style="color: green;">घराची स्वच्छता</span></div></div>
+      <div class="service-card"><img src="image/maid.jpg" alt="Maid Services"><div class="service-card-box">Maid Services <br><span style="color: green;">घरकाम</span></div></div>
+      <div class="service-card"><img src="image/cook.jpg" alt="Cook"><div class="service-card-box">Cook / Chef <br><span style="color: green;">स्वयंपाकी</span></div></div>
+      <div class="service-card"><img src="image/daycare.jpg" alt="Babysitter"><div class="service-card-box">Daycare <br><span style="color: green;">पाळणाघर</span></div></div>
+      <div class="service-card"><img src="image/driver.jpg" alt="Driver"><div class="service-card-box">Driver on Demand <br><span style="color: green;">ड्रायव्हर</span></div></div>
     </div>
   </section>
 
   <section class="services-section">
     <h2 id="maintainance" tabindex="-1">Repairs & Maintenance</h2>
     <div class="service-grid">
- 
-
- <div class="service-card-title"><img src="electrician.jpg"  class="service-card img" style="width: 200px; height: auto;">
-      <div class="service-card-box">Electrician <br><span style="color: green;">इलेक्ट्रिशियन</span></div></div>
-     
-
-
- <div class="service-card-title"><img src="plumber.jpg"  class="service-card img" style="width: 200px; height: auto;">
-      <div class="service-card-box">Plumber  <br><span style="color: green;">प्लंबर</span></div></div>
-     
-
- <div class="service-card-title"><img src="carpenter.jpeg"  class="service-card img" style="width: 200px; height: auto;">
- <div class="service-card-box">Carpenter <br><span style="color: green;">सुतार</span></div></div>
-      
-
-<div class="service-card-title"><img src="tv.jpg"  class="service-card img" style="width: 200px; height: auto;">
-    <div class="service-card-box">TV Repair <br><span style="color: green; ">टीव्ही रिपेअर</span></div></div>
-      
-
-<div class="service-card-title"><img src="paint.jpeg"  class="service-card img" style="width: 200px; height: auto;">
-<div class="service-card-box">Painter  <br><span style="color: green;">पेंटर</span></div></div>
-   
+      <div class="service-card"><img src="image/electrician.jpg" alt="Electrician"><div class="service-card-box">Electrician <br><span style="color: green;">इलेक्ट्रिशियन</span></div></div>
+      <div class="service-card"><img src="image/plumber.jpg" alt="Plumber"><div class="service-card-box">Plumber <br><span style="color: green;">प्लंबर</span></div></div>
+      <div class="service-card"><img src="image/carpenter.jpeg" alt="Carpenter"><div class="service-card-box">Carpenter <br><span style="color: green;">सुतार</span></div></div>
+      <div class="service-card"><img src="image/tv.jpg" alt="TV Repair"><div class="service-card-box">TV Repair <br><span style="color: green;">टीव्ही रिपेअर</span></div></div>
+      <div class="service-card"><img src="image/paint.jpeg" alt="Painter"><div class="service-card-box">Painter <br><span style="color: green;">पेंटर</span></div></div>
     </div>
   </section>
 
   <section class="services-section">
     <h2 id="personal-services" tabindex="-1">Personal Services</h2>
     <div class="service-grid">
-      <div class="service-card-title"><img src="yoga.png"  class="service-card img" style="width: 200px; height: auto;">
-   <div class="service-card-box">Yoga Instructor  <br><span style="color: green;">योगा</span></div></div>
-
-   
-
-   <div class="service-card-title"><img src="fitness.jpg"  class="service-card img" style="width: 200px; height: auto;">
-     <div class="service-card-box">Fitness Trainer  <br><span style="color: green;">फिटनेस ट्रेनर</span></div></div>
-
-    <div class="service-card-title"><img src="bp.jpg"  class="service-card img" style="width: 200px; height: auto;">
-        <div class="service-card-box">Beautician  <br><span style="color: green;">ब्युटी पार्लर</span></div></div>
-    
-     <div class="service-card-title"><img src="counceller2.jpg"  class="service-card img" style="width: 200px; height: auto;">
-        <div class="service-card-box">Counceller  <br><span style="color: green;">सल्लागार</span></div></div>
-      
-
-  
-
-
-   
+      <div class="service-card"><img src="image/yoga.png" alt="Yoga"><div class="service-card-box">Yoga Instructor <br><span style="color: green;">योगा</span></div></div>
+      <div class="service-card"><img src="image/fitness.jpg" alt="Fitness"><div class="service-card-box">Fitness Trainer <br><span style="color: green;">फिटनेस ट्रेनर</span></div></div>
+      <div class="service-card"><img src="image/bp.jpg" alt="Beautician"><div class="service-card-box">Beautician <br><span style="color: green;">ब्युटी पार्लर</span></div></div>
+      <div class="service-card"><img src="image/counceller2.jpg" alt="Counceller"><div class="service-card-box">Counceller <br><span style="color: green;">सल्लागार</span></div></div>
     </div>
   </section>
 
   <section class="services-section">
     <h2 id="outdoor" tabindex="-1">Outdoor & Seasonal</h2>
     <div class="service-grid">
-
-
-      <div class="service-card-title"><img src="gardening.jpg"  class="service-card img" style="width: 200px; height: auto;">
- <div class="service-card-box">Gardening  <br><span style="color: green;">बागकाम</span></div></div>
-    
-
-    <div class="service-card-title"><img src="carwash.jpg"  class="service-card img" style="width: 200px; height: auto;">
-    <div class="service-card-box">Car Wash  <br><span style="color: green;">गाडी धुणे</span></div></div>
-    
-
-   <div class="service-card-title"><img src="pest.jpg"  class="service-card img" style="width: 200px; height: auto;">
-    <div class="service-card-box">Pest Control <br><span style="color: green;">कीटक नियंत्रण</span></div></div>
-    
-   <div class="service-card-title"><img src="window2.jpeg"  class="service-card img" style="width: 200px; height: auto;">
-    <div class="service-card-box">Window Cleaning <br><span style="color: green;">काच साफ करणे</span></div></div>
-    
-  
+      <div class="service-card"><img src="image/gardening.jpg" alt="Gardening"><div class="service-card-box">Gardening <br><span style="color: green;">बागकाम</span></div></div>
+      <div class="service-card"><img src="image/carwash.jpg" alt="Car Wash"><div class="service-card-box">Car Wash <br><span style="color: green;">गाडी धुणे</span></div></div>
+      <div class="service-card"><img src="image/pest.jpg" alt="Pest Control"><div class="service-card-box">Pest Control <br><span style="color: green;">कीटक नियंत्रण</span></div></div>
+      <div class="service-card"><img src="image/window2.jpeg" alt="Window Cleaning"><div class="service-card-box">Window Cleaning <br><span style="color: green;">काच साफ करणे</span></div></div>
     </div>
   </section>
-
-
 
 <script>
   window.onload = function () {
     const params = new URLSearchParams(window.location.search);
     const searchQuery = params.get("q");
-
     if (searchQuery) {
       const input = searchQuery.toLowerCase();
       const cards = document.querySelectorAll(".card");
       let matchFound = false;
       let firstMatch = null;
-
       cards.forEach(card => {
         const text = card.innerText.toLowerCase();
         const match = text.includes(input);
         card.style.display = match ? "block" : "none";
-
-        if (match && !firstMatch) {
-          firstMatch = card;
-          matchFound = true;
-        }
+        if (match && !firstMatch) { firstMatch = card; matchFound = true; }
       });
-
       if (firstMatch) {
-        // Scroll and focus the first matched card
         firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
-        firstMatch.setAttribute("tabindex", "-1"); // Make sure it can receive focus
+        firstMatch.setAttribute("tabindex", "-1");
         firstMatch.focus();
       }
-
       if (!matchFound) {
         const section = document.querySelector(".sections");
         const message = document.createElement("p");
@@ -163,5 +131,3 @@
 </script>
 </body>
 </html>
-
-
